@@ -21,6 +21,17 @@
 #define DPADD     15
 
 
+void NavyScreen(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
+
+	SDL_RenderClear(renderer);
+	SDL_SetRenderDrawColor(renderer, 0, 0, 128, 255);
+    SDL_GetWindowSize(window, &w, &h);
+    SDL_Rect f = {0, 0, w, h};
+    SDL_RenderFillRect(renderer, &f);
+	SDL_RenderPresent(renderer);
+	
+}
+
 void CyanScreen(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
 
 	SDL_RenderClear(renderer);
@@ -42,9 +53,21 @@ void BlackScreen(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
 	
 }
 
-void GlowScreen(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
+
+void GreenScreen(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
 	SDL_RenderClear(renderer);
 	SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);
+    SDL_GetWindowSize(window, &w, &h);
+    SDL_Rect f = {0, 0, w, h};
+    SDL_RenderFillRect(renderer, &f);
+	SDL_RenderPresent(renderer);
+	
+}
+
+
+void GlowScreen(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
+	SDL_RenderClear(renderer);
+	SDL_SetRenderDrawColor(renderer, 213, 236, 153, 255);
     SDL_GetWindowSize(window, &w, &h);
     SDL_Rect f = {0, 0, w, h};
     SDL_RenderFillRect(renderer, &f);
@@ -69,9 +92,11 @@ void Strobe(int w, int h, SDL_Window *window, SDL_Renderer *renderer) {
 
 CyanScreen(w, h, window, renderer);
 BlackScreen(w, h, window, renderer);
+GreenScreen(w, h, window, renderer);
 GlowScreen(w, h, window, renderer);
 WhiteScreen(w, h, window, renderer);
-	
+NavyScreen(w, h, window, renderer);	
+
 } 
 
 int main(int argc, char *argv[])
@@ -142,7 +167,37 @@ int main(int argc, char *argv[])
             {
                CyanScreen(w, h, window, renderer);
             }
+			
+			if (event.jbutton.button == B)
+            {
+               BlackScreen(w, h, window, renderer);
+            }
 
+			
+			if (event.jbutton.button == Y)
+            {
+               GlowScreen(w, h, window, renderer);
+            }
+			
+			//dpad
+			if (event.jbutton.button == DPADU)
+            {
+               CyanScreen(w, h, window, renderer);
+            }			
+			if (event.jbutton.button == DPADL)
+            {
+               GlowScreen(w, h, window, renderer);
+            }			
+			if (event.jbutton.button == DPADR)
+            {
+               GreenScreen(w, h, window, renderer);
+            }
+			if (event.jbutton.button == DPADD)
+            {
+               NavyScreen(w, h, window, renderer);
+            }			
+			
+			
 			if (event.jbutton.button == PLUS)
             {
                done = 1;
