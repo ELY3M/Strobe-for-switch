@@ -1,6 +1,6 @@
 # Strobe for Nintendo Switch
 
-
+This is another good SDL example :)   
 It will flashes in colors rapidly for short time after you press X.   
 
 
