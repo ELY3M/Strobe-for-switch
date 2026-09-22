@@ -34,6 +34,7 @@ include $(DEVKITPRO)/libnx/switch_rules
 APP_TITLE :=	Strobe
 APP_AUTHOR :=	ELY M.
 APP_VERSION :=	1.0
+ICON        := icon.png
 
 TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
